@@ -1,0 +1,9 @@
+name: videoclub_php
+
+include:
+  - images/videoclub.yml
+
+networks:
+  videoclub_php:
+    name: videoclub_php
+    driver: bridge

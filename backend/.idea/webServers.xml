@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="36f3ff0d-5aaa-4e2f-8ff8-22b113ab23f7" name="docker-videoclub" url="http://127.0.0.1:8080/">
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
