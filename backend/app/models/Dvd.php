@@ -1,6 +1,5 @@
 <?php
 namespace app\models;
-require_once ("Soporte.php");
 
 class Dvd extends Soporte
 {
@@ -14,7 +13,13 @@ class Dvd extends Soporte
         $this->formatoPantalla = $formatoPantalla;
     }
 
+    public function muestraResumen(): string {
+        return parent::muestraResumen() . ", " . join("-", $this->idiomas) .", $this->formatoPantalla";
+    }
 
-
+    public function __toString(): string
+    {
+        return $this->muestraResumen();
+    }
 
 }

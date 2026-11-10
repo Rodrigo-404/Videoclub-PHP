@@ -3,8 +3,6 @@ namespace app\models;
 
 use Override;
 
-require_once ("CintaVideo.php");
-
 class CintaVideo extends Soporte
 {
     private int $duracion;
@@ -19,6 +17,11 @@ class CintaVideo extends Soporte
     public function muestraResumen(): string
     {
         return parent::muestraResumen() . ", " . $this->duracion . " min";
+    }
+
+    public function __toString(): string
+    {
+        return $this->muestraResumen();
     }
 
 }

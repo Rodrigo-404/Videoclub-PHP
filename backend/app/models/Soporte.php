@@ -27,7 +27,7 @@ class Soporte
     }
 
     public function getPrecioConIVA(): float {
-        return $this->precio + ($this->precio * self::$IVA);
+        return round($this->precio + ($this->precio * self::$IVA), 2);
     }
 
     public function getPrecio(): float
