@@ -1,5 +1,6 @@
 <?php
 namespace app\utils;
+use app\enums\ReturnMode;
 use app\models\Soporte;
 
 class ArrayUtils
@@ -37,19 +38,21 @@ class ArrayUtils
     }
 
     /**
-     * Devuelve soporte dado su número.
-     * @param array $soportes
-     * @param int $numSoporte
-     * @return Soporte|null
+     * Devuelve el primer elemento que coincida con la condición de búsqueda.
+     * @param array $array
+     * @param ReturnMode $returnMode - Especifica si debe devolver un array o un elemento
+     * @param callable $callback
+     * @return object|array|null
      */
-    public static function getSoportePorNumSoporte(array $soportes, int $numSoporte): ?Soporte
+    public static function arraySearchByCondition(array $array, ReturnMode $returnMode, callable $callback): object | array | null
     {
-        foreach ($soportes as $value) {
-            if ($value->getNumero() === $numSoporte) {
-                return $value;
-            }
+        $filteredElements = array_filter($array, $callback);
+
+        if($returnMode === ReturnMode::SINGLE_ELEMENT ) {
+            return $filteredElements[0];
         }
 
-        return null;
+        return $filteredElements;
     }
+
 }
