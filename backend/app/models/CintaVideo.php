@@ -17,6 +17,7 @@ class CintaVideo extends Soporte
         return parent::muestraResumen() . ", " . $this->duracion . " min";
     }
 
+    #[\Override]
     public function __toString(): string
     {
         return $this->muestraResumen();

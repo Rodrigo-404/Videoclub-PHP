@@ -31,12 +31,13 @@ class Juego extends Soporte
         };
     }
 
+    #[\Override]
     public function muestraResumen(): string
     {
         return parent::muestraResumen() . ", $this->consola, " . $this->muestraJugadoresPosibles();
     }
 
-
+    #[\Override]
     public function __toString(): string
     {
         return $this->muestraResumen();

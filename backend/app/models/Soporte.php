@@ -1,8 +1,19 @@
 <?php
 namespace app\models;
 
-class Soporte
+use app\interfaces\Resumible;
+
+abstract class Soporte implements Resumible
 {
+    /**
+     * RESPUESTA A LA PRIMERA PREGUNTA:
+     * Al hacer abstracta la clase, conseguimos hacer métodos abstractos y poder sobrescribirlos en las clases que la
+     * hereden o implementen
+     *
+     * RESPUESTA A LA SEGUNDA PREGUNTA:
+     * No hace falta que los hijos implementen la interfaz Resumible, ya que estaban sobreescribiendo el método del padre.
+     */
+
     private static float $IVA = 0.21;
 
     public string $titulo;
@@ -35,6 +46,7 @@ class Soporte
         return $this->precio;
     }
 
+    #[\Override]
     public function muestraResumen(): string {
         return $this->titulo . " - " . $this->numero . ": " . $this->precio . " €";
     }

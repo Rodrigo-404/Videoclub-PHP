@@ -13,10 +13,12 @@ class Dvd extends Soporte
         $this->formatoPantalla = $formatoPantalla;
     }
 
+    #[\Override]
     public function muestraResumen(): string {
         return parent::muestraResumen() . ", " . join("-", $this->idiomas) .", $this->formatoPantalla";
     }
 
+    #[\Override]
     public function __toString(): string
     {
         return $this->muestraResumen();

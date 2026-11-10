@@ -49,8 +49,8 @@ class Cliente
 
     public function alquilar(Soporte $s): bool {
         if($this->tieneAlquilado($s) || $this->numSoportesAlquilados > $this->maxAlquilerConcurrente) {
-            echo "Supera alquiler: " . ($this->numSoportesAlquilados > $this->maxAlquilerConcurrente) . " Tiene alquilado: " . $this->tieneAlquilado($s)."</br>";
-            echo "No se puede alquilar el soporte con número " . $s->getNumero() . " para el cliente $this->nombre </br>";
+            echo "<b>[ERROR]</b> Supera alquiler: " . ($this->numSoportesAlquilados > $this->maxAlquilerConcurrente) . " Tiene alquilado: " . $this->tieneAlquilado($s)."</br>";
+            echo "<b>[ERROR]</b> No se puede alquilar el soporte con número " . $s->getNumero() . " para el cliente $this->nombre </br>";
             return false;
         }
 
