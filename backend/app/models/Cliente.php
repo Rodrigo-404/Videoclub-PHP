@@ -2,6 +2,7 @@
 namespace app\models;
 
 use app\utils\ArrayUtils;
+use app\utils\SoporteUtils;
 
 class Cliente
 {
@@ -60,11 +61,11 @@ class Cliente
     }
 
     public function devolver(int $numSoporte): bool {
-        $soporte = ArrayUtils::getSoportePorNumSoporte($this->soportesAlquilados, $numSoporte);
+        $soporte = SoporteUtils::getSoportePorNumSoporte($this->soportesAlquilados, $numSoporte);
         $index = ArrayUtils::array_indexOf($this->soportesAlquilados, $soporte);
 
         if (!in_array($soporte, $this->soportesAlquilados)) {
-            echo "El número de soporte $numSoporte no está alquilado.</br>";
+            echo "<b>[ERROR]</b> El número de soporte $numSoporte no está alquilado.</br>";
             return false;
         }
 
