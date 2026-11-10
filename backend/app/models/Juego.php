@@ -27,7 +27,7 @@ class Juego extends Soporte
             $this->minNumJugadores == 1 && $this->maxNumJugadores == 1 => "Para un jugador",
             $this->minNumJugadores == $this->maxNumJugadores => "Para $this->maxNumJugadores jugadores",
             $this->minNumJugadores < $this->maxNumJugadores => "De $this->minNumJugadores a $this->maxNumJugadores jugadores",
-            default => "No se han podido obtener correctamente los datos",
+            default => "<b>[ERROR]</b> No se han podido obtener correctamente los datos",
         };
     }
 
