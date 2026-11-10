@@ -1,8 +1,6 @@
 <?php
 namespace app\models;
 
-use Override;
-
 class CintaVideo extends Soporte
 {
     private int $duracion;
@@ -13,7 +11,7 @@ class CintaVideo extends Soporte
         $this->duracion = $duracion;
     }
 
-    #[Override]
+    #[\Override]
     public function muestraResumen(): string
     {
         return parent::muestraResumen() . ", " . $this->duracion . " min";
