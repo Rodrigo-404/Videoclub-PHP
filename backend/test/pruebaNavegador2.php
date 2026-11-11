@@ -1,13 +1,10 @@
 <?php
+include "../autoload.php";
 
 use app\models\CintaVideo;
 use app\models\Cliente;
 use app\models\Dvd;
 use app\models\Juego;
-
-include "../autoload.php";
-
-
 
 //instanciamos un par de objetos cliente
 $cliente1 = new Cliente("Bruce Wayne", 23);

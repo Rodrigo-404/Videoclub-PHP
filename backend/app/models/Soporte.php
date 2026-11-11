@@ -20,11 +20,6 @@ abstract class Soporte implements Resumible
     protected int $numero;
     private float $precio;
 
-    /**
-     * @param string $titulo
-     * @param int $numero
-     * @param float $precio
-     */
     public function __construct(string $titulo, int $numero, float $precio)
     {
         $this->titulo = $titulo;

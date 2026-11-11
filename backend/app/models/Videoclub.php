@@ -12,9 +12,6 @@ class Videoclub
     private array $socios = [];
     private int $numSocios;
 
-    /**
-     * @param string $nombre
-     */
     public function __construct(string $nombre)
     {
         $this->nombre = $nombre;

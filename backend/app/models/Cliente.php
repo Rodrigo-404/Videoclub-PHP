@@ -48,9 +48,15 @@ class Cliente
     }
 
     public function alquilar(Soporte $s): bool {
-        if($this->tieneAlquilado($s) || $this->numSoportesAlquilados > $this->maxAlquilerConcurrente) {
-            echo "<b>[ERROR]</b> Supera alquiler: " . ($this->numSoportesAlquilados > $this->maxAlquilerConcurrente) . " Tiene alquilado: " . $this->tieneAlquilado($s)."</br>";
-            echo "<b>[ERROR]</b> No se puede alquilar el soporte con número " . $s->getNumero() . " para el cliente $this->nombre </br>";
+        if($this->tieneAlquilado($s)) {
+            echo "<b>[ERROR]</b> No se puede alquilar el soporte con número " . $s->getNumero() . " para el cliente ".
+                "{$this->nombre} porque ya lo tiene alquilado</br>";
+
+            return false;
+        } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente-1) {
+            echo "<b>[ERROR]</b> Cliente {$this->nombre} supera alquiler: tiene ".
+                "{$this->numSoportesAlquilados}/{$this->maxAlquilerConcurrente}</br>";
+
             return false;
         }
 
@@ -62,7 +68,7 @@ class Cliente
 
     public function devolver(int $numSoporte): bool {
         $soporte = SoporteUtils::getSoportePorNumSoporte($this->soportesAlquilados, $numSoporte);
-        $index = ArrayUtils::array_indexOf($this->soportesAlquilados, $soporte);
+        $index = ArrayUtils::indexOf($this->soportesAlquilados, $soporte);
 
         if (!in_array($soporte, $this->soportesAlquilados)) {
             echo "<b>[ERROR]</b> El número de soporte $numSoporte no está alquilado.</br>";

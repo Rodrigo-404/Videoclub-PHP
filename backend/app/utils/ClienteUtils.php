@@ -14,7 +14,7 @@ class ClienteUtils
      */
     public static function getClienteByNum(array $socios, int $numeroCliente): ?Cliente
     {
-        $result = ArrayUtils::arraySearchByCondition(
+        $result = ArrayUtils::searchByCondition(
             $socios,
             ReturnMode::SINGLE_ELEMENT,
             fn($e) => $e->getNumero() === $numeroCliente

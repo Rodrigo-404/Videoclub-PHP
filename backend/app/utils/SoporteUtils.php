@@ -1,6 +1,7 @@
 <?php
 namespace app\utils;
 
+use app\enums\ReturnMode;
 use app\models\Soporte;
 
 class SoporteUtils
@@ -13,12 +14,12 @@ class SoporteUtils
      */
     public static function getSoportePorNumSoporte(array $soportes, int $numSoporte): ?Soporte
     {
-        foreach ($soportes as $value) {
-            if ($value instanceof Soporte && $value->getNumero() === $numSoporte) {
-                return $value;
-            }
-        }
+        $result = ArrayUtils::searchByCondition(
+            $soportes,
+            ReturnMode::SINGLE_ELEMENT,
+            fn($s) => $s->getNumero() === $numSoporte
+        );
 
-        return null;
+        return $result instanceof Soporte? $result: null;
     }
 }
