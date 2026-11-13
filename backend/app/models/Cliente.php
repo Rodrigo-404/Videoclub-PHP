@@ -53,7 +53,7 @@ class Cliente
                 "{$this->nombre} porque ya lo tiene alquilado</br>";
 
             return false;
-        } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente-1) {
+        } else if ($this->numSoportesAlquilados >= $this->maxAlquilerConcurrente) {
             echo "<b>[ERROR]</b> Cliente {$this->nombre} supera alquiler: tiene ".
                 "{$this->numSoportesAlquilados}/{$this->maxAlquilerConcurrente}</br>";
 
